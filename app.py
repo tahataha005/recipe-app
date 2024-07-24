@@ -29,7 +29,7 @@ load_dotenv()
 API_KEY = "a508d888595c4a4fa2cb44a0fed80c69"
 
 st.write("Search Recipes")
-query = st.text_input("Query")
+query = st.text_input("Ingredient name")
 
 if st.button("Search"):
     get_recipes()
