@@ -64,7 +64,7 @@ jobs:
           username: ${{secrets.REMOTE_USER}}
           key: ${{secrets.SSH_PRIVATE_KEY}}
           script: |
-            docker stop recipe-app || true
-            docker rm recipe-app || true
-            docker pull ${{secrets.DOCKER_USERNAME}}/recipe-app:latest
-            docker run -d -p ${{secrets.EXPOSED_STREAMLIT_PORT}}:${{secrets.IMAGE_STREAMLIT_PORT}} --name recipe-app ${{secrets.DOCKER_USERNAME}}/recipe-app:latest
+            sudo docker stop recipe-app || true
+            sudo docker rm recipe-app || true
+            sudo docker pull ${{secrets.DOCKER_USERNAME}}/recipe-app:latest
+            sudo docker run -d -p ${{secrets.EXPOSED_STREAMLIT_PORT}}:${{secrets.IMAGE_STREAMLIT_PORT}} --name recipe-app ${{secrets.DOCKER_USERNAME}}/recipe-app:latest
