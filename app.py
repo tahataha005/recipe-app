@@ -3,7 +3,7 @@ import requests
 import os
 from dotenv import load_dotenv
 
-def fetchRecipes():
+def getRecipes():
   res = requests.get(f"https://api.spoonacular.com/recipes/complexSearch?apiKey={apiKey}&query={query}", )
   data = res.json()
 
@@ -18,4 +18,4 @@ st.write("Search Recipes")
 query = st.text_input("Query")
 
 if st.button("Search"):
-  fetchRecipes()
+  getRecipes()
