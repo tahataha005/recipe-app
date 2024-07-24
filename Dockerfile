@@ -3,7 +3,11 @@ FROM python:3.9-slim
 WORKDIR /usr/src/app
 
 RUN apt-get update && apt-get install -y \
-    python3 python3-pip git && git clone https://github.com/tahataha005/recipe-app && pip3 install -r requirements.txt
+    python3 python3-pip git
+
+RUN git clone https://github.com/tahataha005/recipe-app .
+
+RUN pip3 install -r requirements.txt
 
 EXPOSE 8501
 
