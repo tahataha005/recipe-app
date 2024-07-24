@@ -1,12 +1,15 @@
-FROM ubuntu
+FROM python:3.9-slim
 
 WORKDIR /usr/src/app
 
-RUN apt-get update && \
-    apt-get install -y python3 python3-pip \
-    pip install streamlit
+RUN apt-get update && apt-get install -y \
+    python3 python3-pip git
 
-COPY . .
+RUN git clone https://github.com/tahataha005/recipe-app .
+
+COPY .env .
+
+RUN pip3 install -r requirements.txt
 
 EXPOSE 8501
 
