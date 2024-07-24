@@ -1,14 +1,21 @@
+import os
 import streamlit as st
 import requests
-import os
 from dotenv import load_dotenv
 
-def getRecipes():
-  res = requests.get(f"https://api.spoonacular.com/recipes/complexSearch?apiKey={apiKey}&query={query}", )
-  data = res.json()
+def get_recipes():
+    try:
+        res = requests.get(
+          f"https://api.spoonacular.com/recipes/complexSearch?apiKey={apiKey}&query={query}"
+        )
+        data = res.json()
 
-  for item in data["results"]:
-    st.write(item["title"])
+        for item in data["results"]:
+            st.write(item["title"])
+
+    except:
+        st.write("Something went wrong")
+
 
 
 load_dotenv()
@@ -18,4 +25,4 @@ st.write("Search Recipes")
 query = st.text_input("Query")
 
 if st.button("Search"):
-  getRecipes()
+    get_recipes()
