@@ -28,7 +28,7 @@ def get_recipes():
 
 
 load_dotenv()
-apiKey = os.getenv('API_KEY')
+apiKey = "a508d888595c4a4fa2cb44a0fed80c69"
 
 st.write("Search Recipes")
 query = st.text_input("Query")
