@@ -6,7 +6,8 @@ from dotenv import load_dotenv
 def get_recipes():
     try:
         res = requests.get(
-          f"https://api.spoonacular.com/recipes/complexSearch?apiKey={apiKey}&query={query}"
+          f"https://api.spoonacular.com/recipes/complexSearch?apiKey={apiKey}&query={query}",
+          timeout=5000
         )
         data = res.json()
 
