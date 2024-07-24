@@ -5,8 +5,8 @@ EXPOSE 8501
 WORKDIR /usr/src/app
 
 RUN apt-get update && apt-get install -y \
-    python3-pip git \
-    git clone https://github.com/tahataha005/recipe-app \
+    python3-pip git && \
+    git clone https://github.com/tahataha005/recipe-app &&\
     pip3 install -r requirements.txt
 
 CMD ["streamlit", "run", "app.py"]
