@@ -1,6 +1,8 @@
 """
 This module runs a Streamlit app for displaying recipes.
 """
+
+import os
 import streamlit as st
 import requests
 from dotenv import load_dotenv
@@ -26,7 +28,7 @@ def get_recipes():
 
 
 load_dotenv()
-API_KEY = "a508d888595c4a4fa2cb44a0fed80c69"
+API_KEY = os.getenv("API_KEY")
 
 st.write("Search Recipes")
 query = st.text_input("Ingredient name")
