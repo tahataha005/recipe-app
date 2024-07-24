@@ -1,15 +1,13 @@
 FROM python:3.9-slim
 
+EXPOSE 8501
+
 WORKDIR /usr/src/app
 
 RUN apt-get update && apt-get install -y \
-    python3 python3-pip git
-
-RUN git clone https://github.com/tahataha005/recipe-app .
-
-RUN pip3 install -r requirements.txt
-
-EXPOSE 8501
+    python3-pip git \
+    git clone https://github.com/tahataha005/recipe-app \
+    pip3 install -r requirements.txt
 
 CMD ["streamlit", "run", "app.py"]
 

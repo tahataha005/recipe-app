@@ -31,7 +31,7 @@ load_dotenv()
 API_KEY = os.getenv("API_KEY")
 
 st.write("Search Recipes")
-query = st.text_input("Ingredient name")
+query = st.text_input("Ingredient ")
 
 if st.button("Search"):
     get_recipes()
